@@ -3,7 +3,7 @@
 function Misc(){
     return (
         <div className="misc">
-
+Satya
         </div>
     );
 }
