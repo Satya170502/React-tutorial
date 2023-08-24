@@ -5,23 +5,30 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import {Homepage} from "./Pages/Homepage";
 import {Profile} from "./Pages/Profile";
 import {Navbar} from "./Navbar";
+import {QueryClient, QueryClientProvider} from '@tankstack/raect-query'
 export const AppContext=createContext();
 function App() {
+    const client=new QueryClient ({defaultoptions:{
+        queries:{
+            refetchWindowFocus:false,
+        }
+    }
+    });
    const [username,setusername]=useState("Satya");
 
 
     return(
 <div className="App">
-    <AppContext.Provider value={{username, setusername}}>
+    <QueryClientProvider client={client}>
     <Router>
         <Navbar />
         <Routes>
-            <Route path="/" element={<Homepage u />} />
+            <Route path="/" element={<Homepage   />} />
             <Route path="/profile" element={<Profile  />} />
             <Route path="*" element={<h1>Page not found</h1>} />
         </Routes>
     </Router>
-    </AppContext.Provider>
+    </QueryClientProvider>
     
   </div>
     );
