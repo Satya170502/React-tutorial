@@ -1,5 +1,10 @@
 .App {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 10px;
 }
 
 .App-logo {
@@ -69,4 +74,12 @@
   height: 20px;
   margin-left: 5px;
   text-align: center;
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+p {
+  color: red;
 }
