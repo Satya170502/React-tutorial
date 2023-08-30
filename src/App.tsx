@@ -1,22 +1,29 @@
-import React from 'react';
-import {Person,Country} from './Person'
-import './App.css';
 
+import {BrowserRouter as Router,Routes,Route, Link} from "react-router-dom"
+import './App.css';
+import { Home } from './Home';
+import { Login } from './Login';
+import { Contact } from './Contact';
+import { store } from "./store";
+import {Provider} from "react-redux";
 function App() {
-  /*const getAge=(name:string):number=>{
-    return 21 specifying in a function
-  }*/
+ 
   return (
     <div className="App">
-      <Person
-      name="Satya"
-      email="Satya@email.com"
-      age={21}
-      isMarried={false}
-      friends={["jake","jessica","jerry"]}
-      country={Country.India}
-       
-       />
+      <Provider store={store}>
+      <Router>
+
+        <Link to="/">Home</Link>
+        <Link to="/login">Login</Link>
+        <Link to="/contact">Contact</Link>
+        <Routes>
+          <Route path="/" element={<Home/>}/>
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/contact" element={<Contact/>}/>
+        </Routes>
+      </Router>
+      </Provider>
+      
     </div>
   );
 }
